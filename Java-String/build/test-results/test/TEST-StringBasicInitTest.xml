@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="StringBasicInitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-17T15:25:28" hostname="DESKTOP-3DBO4P2" time="0.021">
+  <properties/>
+  <testcase name="null_인경우_print에는null이출력되는이유()" classname="StringBasicInitTest" time="0.021"/>
+  <system-out><![CDATA[null
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
