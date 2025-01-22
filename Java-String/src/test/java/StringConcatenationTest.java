@@ -1,9 +1,13 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringJoiner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -57,5 +61,63 @@ public class StringConcatenationTest {
                 .concat("minseok");
         assertEquals("hello my name is minseok", myString);
     }
+
+    @Test
+    void String_format() {
+        String myString = String.format("%s %s %.2f %s %s, %s...", "I",
+                "ate",
+                2.5056302,
+                "blueberry",
+                "pies",
+                "oops");
+
+        assertEquals("I ate 2.51 blueberry pies, oops...", myString);
+    }
+
+    @Test
+    void String_join_test() {
+        String [] strings = {"hello", "my", "name", "is", "minseok"};
+
+        String resultString = String.join(" ", strings);
+
+        assertEquals("hello my name is minseok", resultString);
+    }
+
+    @Test
+    void StringJoiner_test() {
+        StringJoiner fruitJoiner = new StringJoiner(", ");
+        StringJoiner fruitJoiner2 = new StringJoiner(", ", "fruit: ", " end");
+
+        fruitJoiner.add("Apples");
+        fruitJoiner.add("Oranges");
+        fruitJoiner.add("Bananas");
+
+        fruitJoiner2.add("Apples");
+        fruitJoiner2.add("Oranges");
+        fruitJoiner2.add("Bananas");
+
+        assertEquals("Apples, Oranges, Bananas", fruitJoiner.toString());
+        assertEquals("fruit: Apples, Oranges, Bananas end", fruitJoiner2.toString());
+    }
+
+    @Test
+    void arrayToString_test() {
+        String[] myFavouriteLanguages = {"Java", "JavaScript", "Python"};
+
+        String toString = Arrays.toString(myFavouriteLanguages);
+
+        assertEquals("[Java, JavaScript, Python]", toString);
+    }
+
+    @Test
+    void collector_join() {
+        List<String> awesomeAnimals = Arrays.asList("Shark", "Panda", "Armadillo");
+
+        String animalString = awesomeAnimals.stream().collect(Collectors.joining(", "));
+
+        assertEquals("Shark, Panda, Armadillo", animalString);
+    }
+
+
 
 }
