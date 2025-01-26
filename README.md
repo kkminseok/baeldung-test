@@ -9,3 +9,4 @@ https://www.baeldung.com/
   - [String Initialization in Java](https://www.baeldung.com/java-string-initialization) -> /src/test/StringBasicInitTest.java
   - [Why String Is Immutable in Java?](https://www.baeldung.com/java-string-immutable) -> /src/test/StringImmutableTest.java
   - [Concatenating Strings in Java](https://www.baeldung.com/java-strings-concatenation) -> /src/test/StringConcatenationTest.java
+  - [Guide to Java String Pool](https://www.baeldung.com/java-string-pool#string-interning) -> /src/test/StringPoolTest.java
