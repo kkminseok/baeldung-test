@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="StringLoopTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-26T10:36:58" hostname="DESKTOP-DSIM264" time="0.052">
+  <properties/>
+  <testcase name="characterIteratorTest()" classname="StringLoopTest" time="0.052"/>
+  <system-out><![CDATA[hello minseok]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
