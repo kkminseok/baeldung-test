@@ -11,3 +11,4 @@ https://www.baeldung.com/
   - [Concatenating Strings in Java](https://www.baeldung.com/java-strings-concatenation) -> /src/test/StringConcatenationTest.java
   - [Guide to Java String Pool](https://www.baeldung.com/java-string-pool#string-interning) -> /src/test/StringPoolTest.java
   - [How to Iterate Over the String Characters in Java](https://www.baeldung.com/java-iterate-string-characters) -> /src/test/StringLoopTest.java
+  - [Comparing Strings in Java](https://www.baeldung.com/java-compare-strings) -> /src/test/StringCompareTest.java
