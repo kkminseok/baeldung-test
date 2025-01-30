@@ -12,3 +12,4 @@ https://www.baeldung.com/
   - [Guide to Java String Pool](https://www.baeldung.com/java-string-pool#string-interning) -> /src/test/StringPoolTest.java
   - [How to Iterate Over the String Characters in Java](https://www.baeldung.com/java-iterate-string-characters) -> /src/test/StringLoopTest.java
   - [Comparing Strings in Java](https://www.baeldung.com/java-compare-strings) -> /src/test/StringCompareTest.java
+  - [Guide to Character Encoding](https://www.baeldung.com/java-char-encoding) -> /src/test/StringEncodingTest.java
