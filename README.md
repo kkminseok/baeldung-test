@@ -13,3 +13,4 @@ https://www.baeldung.com/
   - [How to Iterate Over the String Characters in Java](https://www.baeldung.com/java-iterate-string-characters) -> /src/test/StringLoopTest.java
   - [Comparing Strings in Java](https://www.baeldung.com/java-compare-strings) -> /src/test/StringCompareTest.java
   - [Guide to Character Encoding](https://www.baeldung.com/java-char-encoding) -> /src/test/StringEncodingTest.java
+  - [Java Multi-line String](https://www.baeldung.com/java-multiline-string) -> /src/test/StringMultiLineTest.java
