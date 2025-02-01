@@ -20,3 +20,4 @@ https://www.baeldung.com/
   - basic manipulations
     - [Checking for Empty or Blank Strings in Java](https://www.baeldung.com/java-blank-empty-strings) -> [테스트 코드](Java-String/src/test/java/manipulations/CheckEmptyOrBlankTest.java)
     - [Split a String in Java](https://www.baeldung.com/java-split-string) -> [테스트 코드](Java-String/src/test/java/manipulations/SplitSimplyTest.java)
+    - [Adding a Newline Character to a String in Java](https://www.baeldung.com/java-string-newline) -> [테스트 코드](Java-String/src/test/java/manipulations/NewLineTest.java)
