@@ -15,6 +15,7 @@ https://www.baeldung.com/
     - [Comparing Strings in Java](https://www.baeldung.com/java-compare-strings) -> [테스트 코드](Java-String/src/test/java/basics/StringCompareTest.java)
     - [Guide to Character Encoding](https://www.baeldung.com/java-char-encoding) -> [테스트 코드](Java-String/src/test/java/basics/StringEncodingTest.java)
     - [Java Multi-line String](https://www.baeldung.com/java-multiline-string) -> [테스트 코드](Java-String/src/test/java/basics/StringMultiLineTest.java)
+    - [Java Text Blocks](https://www.baeldung.com/java-text-blocks) -> [테스트 코드](Java-String/src/test/java/basics/StringJava15MultiLineTest.java)
     - [String Interpolation in Java](https://www.baeldung.com/java-string-interpolation) -> [테스트 코드](Java-String/src/test/java/basics/StringInterpolationTest.java)
   - basic manipulations
     - [Checking for Empty or Blank Strings in Java](https://www.baeldung.com/java-blank-empty-strings) -> [테스트 코드](Java-String/src/test/java/manipulations/CheckEmptyOrBlankTest.java)
