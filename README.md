@@ -21,3 +21,4 @@ https://www.baeldung.com/
     - [Checking for Empty or Blank Strings in Java](https://www.baeldung.com/java-blank-empty-strings) -> [테스트 코드](Java-String/src/test/java/manipulations/CheckEmptyOrBlankTest.java)
     - [Split a String in Java](https://www.baeldung.com/java-split-string) -> [테스트 코드](Java-String/src/test/java/manipulations/SplitSimplyTest.java)
     - [Adding a Newline Character to a String in Java](https://www.baeldung.com/java-string-newline) -> [테스트 코드](Java-String/src/test/java/manipulations/NewLineTest.java)
+    - [How to Remove the Last Character of a String?](https://www.baeldung.com/java-remove-last-character-of-string) -> [테스트 코드](Java-String/src/test/java/manipulations/RemoveLastCharTest.java)
