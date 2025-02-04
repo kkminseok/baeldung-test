@@ -23,3 +23,4 @@ https://www.baeldung.com/
     - [Adding a Newline Character to a String in Java](https://www.baeldung.com/java-string-newline) -> [테스트 코드](Java-String/src/test/java/manipulations/NewLineTest.java)
     - [How to Remove the Last Character of a String?](https://www.baeldung.com/java-remove-last-character-of-string) -> [테스트 코드](Java-String/src/test/java/manipulations/RemoveLastCharTest.java)
     - [Check If a String Is Numeric in Java](https://www.baeldung.com/java-check-string-number) -> [테스트 코드](Java-String/src/test/java/manipulations/CheckStringNumberTest.java)
+    - [Check If a String Is a Valid Date in Java](https://www.baeldung.com/java-string-valid-date) -> [테스트 코드](Java-String/src/test/java/manipulations/CheckDateValidatorTest.java)
