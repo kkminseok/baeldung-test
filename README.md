@@ -27,6 +27,7 @@ https://www.baeldung.com/
     - [Check If a String Is Numeric in Java](https://www.baeldung.com/java-check-string-number) -> [테스트 코드](Java-String/src/test/java/manipulations/CheckStringNumberTest.java)
     - [Check If a String Is a Valid Date in Java](https://www.baeldung.com/java-string-valid-date) -> [테스트 코드](Java-String/src/test/java/manipulations/CheckDateValidatorTest.java)
     - [Capitalize the First Letter of a String in Java](https://www.baeldung.com/java-string-uppercase-first-letter) -> [테스트 코드](Java-String/src/test/java/manipulations/CapitalizeFirstLetterTest.java)
+    - [Remove Whitespace From a String in Java](https://www.baeldung.com/java-string-remove-whitespace) -> [테스트 코드](Java-String/src/test/java/manipulations/RemoveWhitespaceTest.java)
 
 - Java Web
   - IO
