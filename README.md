@@ -7,6 +7,9 @@ https://www.baeldung.com/
 
 관련 테스트 코드 작성 레포지토리
 
+- Java Basic
+  - [Pass-By-Value as a Parameter Passing Mechanism in Java](https://www.baeldung.com/java-pass-by-value-or-pass-by-reference) -> [테스트 코드](/Java-basic/src/test/java/basic/PassByValueTest.java)
+
 - Java String
   - basic
     - [String Initialization in Java](https://www.baeldung.com/java-string-initialization) -> [테스트 코드](Java-String/src/test/java/basics/StringBasicInitTest.java)
