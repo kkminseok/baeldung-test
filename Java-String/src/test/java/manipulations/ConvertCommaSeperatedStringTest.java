@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ConnvertCommaSeperatedStringTest {
+public class ConvertCommaSeperatedStringTest {
 
     String countries = "Russia,Germany,England,France,Italy";
     String ranks = "1,2,3,4,5,6,7";
@@ -74,7 +74,7 @@ public class ConnvertCommaSeperatedStringTest {
             public Integer apply(String input) {
                 return Integer.parseInt(input.trim());
             }
-        })
+        });
 
         Assertions.assertEquals(expectedCountriesList, convertedCountriesList);
         Assertions.assertEquals(expectedRanksList, convertedRankList);
