@@ -29,6 +29,7 @@ https://www.baeldung.com/
     - [Capitalize the First Letter of a String in Java](https://www.baeldung.com/java-string-uppercase-first-letter) -> [테스트 코드](Java-String/src/test/java/manipulations/CapitalizeFirstLetterTest.java)
     - [Remove Whitespace From a String in Java](https://www.baeldung.com/java-string-remove-whitespace) -> [테스트 코드](Java-String/src/test/java/manipulations/RemoveWhitespaceTest.java)
     - [String Concatenation in Java](https://www.baeldung.com/java-string-concatenation) -> [테스트 코드](Java-String/src/test/java/manipulations/StringConcatenationTest.java)
+    - [Convert a Comma Separated String to a List in Java](https://www.baeldung.com/java-string-with-separator-to-list) -> [테스트 코드](Java-String/src/test/java/manipulations/ConnvertCommaSeperatedStringTest.java)
 
 - Java Web
   - IO
