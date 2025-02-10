@@ -10,6 +10,7 @@ https://www.baeldung.com/
 - Java Basic
   - [Pass-By-Value as a Parameter Passing Mechanism in Java](https://www.baeldung.com/java-pass-by-value-or-pass-by-reference) -> [테스트 코드](/Java-basic/src/test/java/basic/PassByValueTest.java)
   - [Varargs in Java](https://www.baeldung.com/java-varargs) -> [테스트 코드](/Java-basic/src/test/java/basic/VarargsTest.java)
+  - [Guide to hashCode() in Java](https://www.baeldung.com/java-hashcode#handling-hash-collisions) -> [테스트 코드](/Java-basic/src/test/java/basic/HashCodeTest.java)
 - Java String
   - basic
     - [String Initialization in Java](https://www.baeldung.com/java-string-initialization) -> [테스트 코드](Java-String/src/test/java/basics/StringBasicInitTest.java)
