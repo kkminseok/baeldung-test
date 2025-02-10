@@ -34,6 +34,8 @@ https://www.baeldung.com/
     - [String Concatenation in Java](https://www.baeldung.com/java-string-concatenation) -> [테스트 코드](Java-String/src/test/java/manipulations/StringConcatenationTest.java)
     - [Convert a Comma Separated String to a List in Java](https://www.baeldung.com/java-string-with-separator-to-list) -> [테스트 코드](Java-String/src/test/java/manipulations/ConnvertCommaSeperatedStringTest.java)
     - [Difference Between String isEmpty() and isBlank()](https://www.baeldung.com/java-string-isempty-vs-isblank) -> [테스트 코드](Java-String/src/test/java/manipulations/IsBlankIsEmptyTest.java)
+  - advanced manipulations
+    - [Java – Generate Random String](https://www.baeldung.com/java-random-string) -> [테스트 코드](Java-String/src/test/java/manipulations/advance/GenerateRandomStringTest.java)
 
 - Java Web
   - IO

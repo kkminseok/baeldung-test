@@ -1,5 +1,7 @@
 package manipulations.advance;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.text.RandomStringGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.Charset;
@@ -45,5 +47,63 @@ public class GenerateRandomStringTest {
                 .toString();
 
         System.out.println(generatedString);
+    }
+
+    @Test
+    public void usingPlainJava8_randomsInt_GeneratingRandomStringNumber() {
+        int leftLimit = 48; // numeral 0
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+
+        System.out.println(generatedString);
+    }
+
+    @Test
+    public void apacheCommonLang_test() {
+        int length = 10;
+        boolean useLetters = true;
+        boolean useNumbers = true;
+        String generatedString = RandomStringUtils.random(length, useLetters, useNumbers);
+
+        System.out.println(generatedString);
+    }
+
+    @Test
+    public void apacheCommonLang_alphabetic_test() {
+        String generatedString = RandomStringUtils.randomAlphabetic(10);
+        System.out.println(generatedString);
+    }
+
+    @Test
+    public void apacheCommonLang_alphanumeric_test() {
+        String generatedString = RandomStringUtils.randomAlphanumeric(10);
+        System.out.println(generatedString);
+    }
+
+    @Test
+    public void apacheCommonLang_new_test() {
+        // 문자 숫자
+        RandomStringGenerator generate = new RandomStringGenerator.Builder()
+                .withinRange('0', 'z')
+                .filteredBy(Character::isLetterOrDigit)
+                .get();
+        // 숫자만
+        RandomStringGenerator digitGenerate = new RandomStringGenerator.Builder()
+                .withinRange('0', '9')
+                .filteredBy(Character::isDigit)
+                .get();
+
+        String generatedString = generate.generate(10);
+        String digitGeneratedString = digitGenerate.generate(10);
+
+        System.out.println(generatedString);
+        System.out.println(digitGeneratedString);
     }
 }
