@@ -9,4 +9,6 @@ public interface EmployeeRepository {
     Mono<Employee> findEmployeeById(int id);
 
     Flux<Employee> getAllEmployees();
+
+    Mono<Employee> updateEmployee(Employee employee);
 }
