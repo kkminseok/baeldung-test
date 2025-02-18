@@ -39,6 +39,7 @@ https://www.baeldung.com/
     - [Java – Generate Random String](https://www.baeldung.com/java-random-string) -> [테스트 코드](Java-String/src/test/java/manipulations/advance/GenerateRandomStringTest.java)
     - [Count Occurrences of a Char in a String](https://www.baeldung.com/java-count-chars) -> [테스트 코드](Java-String/src/test/java/manipulations/advance/CountCharTest.java)
     - [Check if a String Is a Palindrome in Java](https://www.baeldung.com/java-palindrome) -> [테스트 코드](Java-String/src/test/java/manipulations/advance/CheckPalindromeTest.java)
+    - [Check if Two Strings Are Anagrams in Java](https://www.baeldung.com/java-strings-anagrams) -> [테스트 코드](Java-String/src/test/java/manipulations/advance/AnagramTest.java)
 - Java Web
   - IO
     - [A Simple HTTP Server With Java ServerSocket](https://www.baeldung.com/java-serversocket-simple-http-server) -> [테스트 코드](Java-web/src/main/java/com/my/socket/server/SimpleHttpServerMain.java)
