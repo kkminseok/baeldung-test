@@ -52,3 +52,4 @@ https://www.baeldung.com/
     - [Spring WebFlux Filters](https://www.baeldung.com/spring-webflux-filters) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Filter/src/test/java/com/my/springwebfluxfilter/ExampleWebFilterTest.java)
     - [Static Content in Spring WebFlux](https://www.baeldung.com/spring-webflux-static-content) -> [테스트 코드](/Spring-reactive/Spring-Webflux-static-content/src/main/java/com/my/springwebfluxstaticcontent/RoutingExample.java)
     - [Handling Errors in Spring WebFlux](https://www.baeldung.com/spring-webflux-errors) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Error-handling/src/main/java/com/my/springwebfluxerrorhandling/)
+    - [How to Return 404 with Spring WebFlux](https://www.baeldung.com/spring-webflux-404) -> [테스트 코드](/Spring-reactive/Spring-Webflux-HttpStatus/src/main/java/com/my/springwebfluxhttpstatus/)
