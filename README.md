@@ -51,3 +51,4 @@ https://www.baeldung.com/
     - [Guide to Spring WebFlux](https://www.baeldung.com/spring-webflux) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Guide) 
     - [Spring WebFlux Filters](https://www.baeldung.com/spring-webflux-filters) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Filter/src/test/java/com/my/springwebfluxfilter/ExampleWebFilterTest.java)
     - [Static Content in Spring WebFlux](https://www.baeldung.com/spring-webflux-static-content) -> [테스트 코드](/Spring-reactive/Spring-Webflux-static-content/src/main/java/com/my/springwebfluxstaticcontent/RoutingExample.java)
+    - [Handling Errors in Spring WebFlux](https://www.baeldung.com/spring-webflux-errors) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Error-handling/src/main/java/com/my/springwebfluxerrorhandling/)
