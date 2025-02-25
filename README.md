@@ -53,3 +53,4 @@ https://www.baeldung.com/
     - [Static Content in Spring WebFlux](https://www.baeldung.com/spring-webflux-static-content) -> [테스트 코드](/Spring-reactive/Spring-Webflux-static-content/src/main/java/com/my/springwebfluxstaticcontent/RoutingExample.java)
     - [Handling Errors in Spring WebFlux](https://www.baeldung.com/spring-webflux-errors) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Error-handling/src/main/java/com/my/springwebfluxerrorhandling/)
     - [How to Return 404 with Spring WebFlux](https://www.baeldung.com/spring-webflux-404) -> [테스트 코드](/Spring-reactive/Spring-Webflux-HttpStatus/src/main/java/com/my/springwebfluxhttpstatus/)
+    - [Spring MVC Async vs Spring WebFlux](https://www.baeldung.com/spring-mvc-async-vs-webflux) -> [테스크 코드](/Spring-reactive/Spring-Webflux-AsyncDiffTest/src/main/java/com/my/springwebfluxasyncdifftest/)
