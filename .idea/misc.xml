@@ -10,6 +10,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Filter" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-guide" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-HttpStatus" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-mono-flux-test" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-static-content" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-test" />
   </component>
