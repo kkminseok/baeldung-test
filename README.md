@@ -44,6 +44,10 @@ https://www.baeldung.com/
   - IO
     - [A Simple HTTP Server With Java ServerSocket](https://www.baeldung.com/java-serversocket-simple-http-server) -> [테스트 코드](Java-web/src/main/java/com/my/socket/server/SimpleHttpServerMain.java)
 
+- Java Test
+  - REST
+    - [Test a REST API with Java](https://www.baeldung.com/integration-testing-a-rest-api) -> [테스트 코드](/Java-Test/src/test/java/RestAPITest.java)
+
 - Spring
   - Test
     - [Avoid Brittle Tests for the Service Layer](https://www.baeldung.com/testing-the-java-service-layer#templates) -> [테스트 코드](Spring-test/)
