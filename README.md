@@ -59,4 +59,5 @@ https://www.baeldung.com/
     - [How to Return 404 with Spring WebFlux](https://www.baeldung.com/spring-webflux-404) -> [테스트 코드](/Spring-reactive/Spring-Webflux-HttpStatus/src/main/java/com/my/springwebfluxhttpstatus/)
     - [Spring MVC Async vs Spring WebFlux](https://www.baeldung.com/spring-mvc-async-vs-webflux) -> [테스트 코드](/Spring-reactive/Spring-Webflux-AsyncDiffTest/src/main/java/com/my/springwebfluxasyncdifftest/)
     - [Difference Between Flux and Mono](https://www.baeldung.com/java-reactor-flux-vs-mono) -> [테스트 코드](/Spring-reactive/Spring-Webflux-mono-flux-test/src/test/java/com/my/springwebfluxmonofluxtest/)
-    - [Spring WebClient](https://www.baeldung.com/spring-5-webclient) -> [테스트 코드](/Spring-reactive/Spring-Webflux-WebClient/src/test/java/com/my/springwebfluxwebclient/) 
+    - [Spring WebClient](https://www.baeldung.com/spring-5-webclient) -> [테스트 코드](/Spring-reactive/Spring-Webflux-WebClient/src/test/java/com/my/springwebfluxwebclient/)
+    - [Spring WebClient vs. RestTemplate](https://www.baeldung.com/spring-webclient-resttemplate) -> [테스트 코드](/Spring-reactive/SpringRestTemplateCompareWebClient/)
