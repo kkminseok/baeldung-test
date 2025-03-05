@@ -61,3 +61,4 @@ https://www.baeldung.com/
     - [Difference Between Flux and Mono](https://www.baeldung.com/java-reactor-flux-vs-mono) -> [테스트 코드](/Spring-reactive/Spring-Webflux-mono-flux-test/src/test/java/com/my/springwebfluxmonofluxtest/)
     - [Spring WebClient](https://www.baeldung.com/spring-5-webclient) -> [테스트 코드](/Spring-reactive/Spring-Webflux-WebClient/src/test/java/com/my/springwebfluxwebclient/)
     - [Spring WebClient vs. RestTemplate](https://www.baeldung.com/spring-webclient-resttemplate) -> [테스트 코드](/Spring-reactive/SpringRestTemplateCompareWebClient/)
+    - [Spring WebClient Requests with Parameters](https://www.baeldung.com/webflux-webclient-parameters) -> [테스트 코드](/Spring-reactive/Spring-Webflux-WebClient-With-Param/src/test/java/com/my/springwebfluxwebclientwithparam/)
