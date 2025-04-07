@@ -10,13 +10,6 @@
         </processorPath>
         <module name="SpringRestTemplateCompareWebClient-Reactive.main" />
       </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.30/f195ee86e6c896ea47a1d39defbe20eb59cd149d/lombok-1.18.30.jar" />
-        </processorPath>
-        <module name="Java-basic.main" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Spring-Webflux-Chaninning-Asnyc.main" target="17" />
@@ -28,15 +21,21 @@
       <module name="Spring-Webflux-AsyncDiffTest" options="-parameters" />
       <module name="Spring-Webflux-AsyncDiffTest.main" options="-parameters" />
       <module name="Spring-Webflux-AsyncDiffTest.test" options="-parameters" />
+      <module name="Spring-Webflux-Error-handling" options="-parameters" />
+      <module name="Spring-Webflux-Error-handling.main" options="-parameters" />
+      <module name="Spring-Webflux-Error-handling.test" options="-parameters" />
       <module name="Spring-Webflux-HttpStatus" options="-parameters" />
       <module name="Spring-Webflux-HttpStatus.main" options="-parameters" />
       <module name="Spring-Webflux-HttpStatus.test" options="-parameters" />
       <module name="Spring-Webflux-Mono-Test" options="-parameters" />
       <module name="Spring-Webflux-Mono-Test.main" options="-parameters" />
       <module name="Spring-Webflux-Mono-Test.test" options="-parameters" />
+      <module name="Spring-Webflux-WebClient" options="-parameters" />
       <module name="Spring-Webflux-WebClient-With-Param" options="-parameters" />
       <module name="Spring-Webflux-WebClient-With-Param.main" options="-parameters" />
       <module name="Spring-Webflux-WebClient-With-Param.test" options="-parameters" />
+      <module name="Spring-Webflux-WebClient.main" options="-parameters" />
+      <module name="Spring-Webflux-WebClient.test" options="-parameters" />
       <module name="Spring-Webflux-Webclient-Filter" options="-parameters" />
       <module name="Spring-Webflux-Webclient-Filter.main" options="-parameters" />
       <module name="Spring-Webflux-Webclient-Filter.test" options="-parameters" />
@@ -46,6 +45,12 @@
       <module name="Spring-Webflux-mono-flux-test" options="-parameters" />
       <module name="Spring-Webflux-mono-flux-test.main" options="-parameters" />
       <module name="Spring-Webflux-mono-flux-test.test" options="-parameters" />
+      <module name="Spring-Webflux-static-content" options="-parameters" />
+      <module name="Spring-Webflux-static-content.main" options="-parameters" />
+      <module name="Spring-Webflux-static-content.test" options="-parameters" />
+      <module name="Spring-test" options="-parameters" />
+      <module name="Spring-test.main" options="-parameters" />
+      <module name="Spring-test.test" options="-parameters" />
     </option>
   </component>
 </project>
