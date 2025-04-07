@@ -3,6 +3,8 @@ package com.my.springbootkafkaproducer;
 import com.my.springbootkafkaproducer.model.Foo2;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,14 +12,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
+import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.core.KafkaOperations;
 import org.springframework.kafka.listener.CommonErrorHandler;
 import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
+import org.springframework.kafka.support.converter.JsonMessageConverter;
+import org.springframework.kafka.support.converter.RecordMessageConverter;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.backoff.FixedBackOff;
 
 import java.beans.BeanProperty;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -32,7 +42,7 @@ public class SpringBootKafkaProducerApplication {
 	}
 
 	@Bean
-	public CommonErrorHandler commonErrorHandler(KafkaOperations<Object, Object> template) {
+	public CommonErrorHandler commonErrorHandler(KafkaOperations<String, Object> template) {
 		return new DefaultErrorHandler(new DeadLetterPublishingRecoverer(template), new FixedBackOff(1000L, 2));
 
 	}
@@ -41,12 +51,20 @@ public class SpringBootKafkaProducerApplication {
 	public void listen(Foo2 foo) {
 		log.info("Receive message from topic {}", foo);
 		if(foo.foo().startsWith("fail")) {
+			log.error("error message {}", foo.foo());
 			throw new RuntimeException("fail");
 		}
 		exec.execute(() -> log.info("Hit Enter to terminate"));
 	}
 
-	@KafkaListener(id = "dltGroup", topics = "topic1.DLT")
+	@Bean
+	public RecordMessageConverter converter() {
+		return new JsonMessageConverter();
+	}
+
+
+	//내부적으로 ${base}.DLT로 보냄.
+	@KafkaListener(id = "dltGroup", topics = "topic1-dlt")
 	public void dltListen(byte[] in) {
 		log.info("Received from DLT: {}", new String(in));
 		exec.execute(() -> log.info("Hit Enter to terminate"));
