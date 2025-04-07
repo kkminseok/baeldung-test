@@ -1,5 +1,6 @@
 package com.my.springbootkafkaproducer;
 
+import com.my.springbootkafkaproducer.model.Bar2;
 import com.my.springbootkafkaproducer.model.Foo2;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -21,6 +22,8 @@ import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.support.converter.JsonMessageConverter;
 import org.springframework.kafka.support.converter.RecordMessageConverter;
+import org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper;
+import org.springframework.kafka.support.mapping.Jackson2JavaTypeMapper;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.backoff.FixedBackOff;
@@ -59,7 +62,16 @@ public class SpringBootKafkaProducerApplication {
 
 	@Bean
 	public RecordMessageConverter converter() {
-		return new JsonMessageConverter();
+		JsonMessageConverter converter = new JsonMessageConverter();
+		DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
+		typeMapper.setTypePrecedence(Jackson2JavaTypeMapper.TypePrecedence.TYPE_ID);
+		typeMapper.addTrustedPackages("com.common");
+		Map<String, Class<?>> mappings = new HashMap<>();
+		mappings.put("foo", Foo2.class);
+		mappings.put("bar", Bar2.class);
+		typeMapper.setIdClassMapping(mappings);
+		converter.setTypeMapper(typeMapper);
+		return converter;
 	}
 
 
@@ -78,6 +90,16 @@ public class SpringBootKafkaProducerApplication {
 	@Bean
 	public NewTopic dlt() {
 		return new NewTopic("topic1.DLT", 1, (short) 1);
+	}
+
+	@Bean
+	public NewTopic foos() {
+		return new NewTopic("foos", 1, (short) 1);
+	}
+
+	@Bean
+	public NewTopic bars() {
+		return new NewTopic("bars", 1, (short) 1);
 	}
 
 	@Bean
