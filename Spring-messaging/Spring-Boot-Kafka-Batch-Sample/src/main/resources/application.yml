@@ -11,3 +11,9 @@ spring:
         isolation.level: read_committed
     listener:
       type: batch
+
+logging:
+  level:
+    root: info
+    org.springframework.kafka.core: trace #kafka 로그
+    org.springframework.transaction.interceptor: trace # 트랜잭션 로그
