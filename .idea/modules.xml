@@ -3,12 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java-String.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Java-String.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java-basic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Java-basic.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Java-web.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Java-web.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Kafka-Batch-Sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Kafka-Batch-Sample.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Kafka-Producer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Kafka-Producer.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-test.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-test.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/baeldung-test.iml" filepath="$PROJECT_DIR$/baeldung-test.iml" />
     </modules>
   </component>

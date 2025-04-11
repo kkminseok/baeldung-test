@@ -21,13 +21,13 @@ public class MultiMethods {
 
     @KafkaHandler
     public void foo(Foo2 foo) {
-        log.info("Received: {}", foo);
+        log.info("Received Foo2: {}", foo);
         terminateMessage();
     }
 
     @KafkaHandler
     public void bar(Bar2 bar) {
-        log.info("Received: {}", bar);
+        log.info("Received Bar2: {}", bar);
         terminateMessage();
     }
 
