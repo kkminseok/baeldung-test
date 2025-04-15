@@ -54,6 +54,13 @@ https://www.baeldung.com/
 - Spring
   - Test
     - [Avoid Brittle Tests for the Service Layer](https://www.baeldung.com/testing-the-java-service-layer#templates) -> [테스트 코드](Spring-test/)
+  - Messaging
+    - [공식 예제1 + 공식 예제2 + 커스텀](https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-01) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-Producer)
+    - [공식 예제3](https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-03) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-Batch-Sample)
+    - [공식 예제4](https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-04) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-Retry-Sample)
+    - [공식 예제5](https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-05) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-Embedded-Sample)
+    - [공식 예제6](https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-06) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-TopologyTest-Sample)
+    - [공식 예제7](https://github.com/spring-projects/spring-kafka/blob/main/samples/sample-07/README.adoc) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-KIP-848-Test)
   - Reactive
     - [Guide to Spring WebFlux](https://www.baeldung.com/spring-webflux) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Guide) 
     - [Spring WebFlux Filters](https://www.baeldung.com/spring-webflux-filters) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Filter/src/test/java/com/my/springwebfluxfilter/ExampleWebFilterTest.java)
