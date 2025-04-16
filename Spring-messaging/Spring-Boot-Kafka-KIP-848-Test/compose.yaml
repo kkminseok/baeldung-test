@@ -1,6 +1,6 @@
 services:
   broker:
-    image: bitnami/kafka:3.7.0
+    image: bitnami/kafka:3.9.0
     hostname: broker
     container_name: broker
     ports:
