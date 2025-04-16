@@ -18,16 +18,15 @@ public class ProducerRunner implements ApplicationRunner {
 
     @Bean
     public NewTopic myTopic() {
-        return new NewTopic("KIP818-topic", 2, (short) 1); // 파티션 2개, replication factor 1
+        return new NewTopic("KIP848-topic", 5, (short) 1); // 파티션 2개, replication factor 1
     }
 
     @Override
     public void run(ApplicationArguments args) {
         for (int i = 0; i < 20; i++) {
-            template.send("KIP818-topic", String.valueOf(i), "message-" + i);
-            if(i%3==0) {
-                template.send("KIP818-topic",  String.valueOf(i), "slow-message");
-            }
+            String key = String.valueOf(i % 5); // 파티션 균등 분산
+            String message = (i == 3 || i == 10 || i == 17) ? "slow-message-" + i : "message-" + i;
+            template.send("KIP848-topic", key, message);
         }
 
     }
