@@ -31,6 +31,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient-MVC" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient-Reactive" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-test" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-example" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="corretto-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
