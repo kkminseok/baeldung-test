@@ -62,6 +62,7 @@ https://www.baeldung.com/
     - [Spring Kafka 공식 예제6](https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-06) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-TopologyTest-Sample)
     - [Spring Kafka 공식 예제7](https://github.com/spring-projects/spring-kafka/blob/main/samples/sample-07/README.adoc) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-KIP-848-Test)
     - [Spring Kafka 공식 에제8(끝)](https://github.com/spring-projects/spring-kafka/blob/main/samples/sample-08/README.adoc) -> [테스트 코드](/Spring-messaging/Spring-Boot-Kafka-Micrometer-Sample)
+    - [Kafka-Micrometer + Log4j2연동 테스트](/Spring-messaging/Spring-Boot-Kafka-Micrometer-Sample-Log4j2)
   - Reactive
     - [Guide to Spring WebFlux](https://www.baeldung.com/spring-webflux) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Guide) 
     - [Spring WebFlux Filters](https://www.baeldung.com/spring-webflux-filters) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Filter/src/test/java/com/my/springwebfluxfilter/ExampleWebFilterTest.java)

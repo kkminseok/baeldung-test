@@ -1,5 +1,8 @@
 package com.my.springbootkafkamicrometersamplelog4j2;
 
+import io.micrometer.observation.Observation;
+import io.micrometer.observation.ObservationRegistry;
+import io.micrometer.tracing.TraceContext;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -27,6 +30,8 @@ public class SpringBootKafkaMicrometerSampleLog4j2Application {
 
 			@Override
 			public void onSuccess(ProducerRecord<Object, Object> producerRecord, RecordMetadata recordMetadata) {
+
+				log.info("*******************traceId: {}, spanId: {}", MDC.get("traceId"), MDC.get("spanId"));
 				log.info("Produced: " + producerRecord);
 			}
 		};

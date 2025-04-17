@@ -21,7 +21,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.kafka:spring-kafka'
 	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
-	implementation 'org.apache.logging.log4j:log4j-slf4j2-impl'
+	//필요 없어도 될듯?
+	//implementation 'org.apache.logging.log4j:log4j-slf4j2-impl'
+
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'io.micrometer:micrometer-tracing-bridge-brave'
