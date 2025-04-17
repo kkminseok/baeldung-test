@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Chat</title>
+</head>
+<body>
+<h2>🧵 Chat Room</h2>
+
+<div>
+    <label>Room ID:</label>
+    <input type="text" id="roomId" value="room123">
+</div>
+<div>
+    <label>Sender:</label>
+    <input type="text" id="sender" value="user1">
+</div>
+<div>
+    <label>Message:</label>
+    <input type="text" id="message">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<hr>
+<div>
+    <h3>📥 Messages</h3>
+    <div id="chat-box" style="border:1px solid #ccc; padding:10px; height:200px; overflow-y:scroll;"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+<script>
+    const stompClient = new StompJs.Client({
+        brokerURL: 'ws://localhost:8080/ws-chat', // ws:// 또는 wss://
+        reconnectDelay: 5000, // 재연결 설정
+        debug: (str) => {
+            console.log(str);
+        }
+    });
+
+    stompClient.onConnect = (frame) => {
+        console.log('Connected: ' + frame);
+        const roomId = document.getElementById("roomId").value;
+
+        // 구독
+        stompClient.subscribe('/topic/' + roomId, (message) => {
+            const msg = JSON.parse(message.body);
+            const box = document.getElementById("chat-box");
+            box.innerHTML += `<p><strong>${msg.sender}:</strong> ${msg.content}</p>`;
+            box.scrollTop = box.scrollHeight;
+        });
+
+        // JOIN 메시지 전송
+        stompClient.publish("/app/chat.sendMessage", {}, JSON.stringify({
+            sender: document.getElementById("sender").value,
+            roomId: roomId,
+            content: "joined the room!",
+            type: "JOIN"
+        }));
+    };
+
+    stompClient.onStompError = (frame) => {
+        console.error('Broker reported error: ' + frame.headers['message']);
+        console.error('Additional details: ' + frame.body);
+    };
+
+    function connect() {
+        stompClient.activate(); // 연결 시작
+    }
+
+    function sendMessage() {
+        const roomId = document.getElementById("roomId").value;
+        const sender = document.getElementById("sender").value;
+        const content = document.getElementById("message").value;
+
+        if (stompClient.connected) {
+            stompClient.publish("/app/chat.sendMessage", {}, JSON.stringify({
+                sender: sender,
+                roomId: roomId,
+                content: content,
+                type: "CHAT"
+            }));
+        } else {
+            alert("STOMP 연결이 아직 안 되었습니다!");
+        }
+
+        document.getElementById("message").value = "";
+    }
+
+    window.onload = connect;
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  artemis:
+    image: apache/activemq-artemis:latest
+    container_name: artemis
+    environment:
+      ARTEMIS_USER: admin         # 접속 아이디
+      ARTEMIS_PASSWORD: admin     # 접속 비밀번호
+    ports:
+      - "61616:61616"  # CORE, AMQP, OpenWire
+      - "8161:8161"    # 웹 콘솔
+      - "61613:61613"  # STOMP
+    volumes:
+      - artemis-data:/var/lib/artemis-instance
+    restart: unless-stopped
+
+volumes:
+  artemis-data:
