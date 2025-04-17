@@ -51,12 +51,12 @@
         });
 
         // JOIN 메시지 전송
-        stompClient.publish("/app/chat.sendMessage", {}, JSON.stringify({
+        stompClient.publish({destination:"/app/chat.sendMessage", body: JSON.stringify({
             sender: document.getElementById("sender").value,
             roomId: roomId,
             content: "joined the room!",
             type: "JOIN"
-        }));
+        })});
     };
 
     stompClient.onStompError = (frame) => {
@@ -74,12 +74,12 @@
         const content = document.getElementById("message").value;
 
         if (stompClient.connected) {
-            stompClient.publish("/app/chat.sendMessage", {}, JSON.stringify({
+            stompClient.publish({destination:"/app/chat.sendMessage",body:JSON.stringify({
                 sender: sender,
                 roomId: roomId,
                 content: content,
                 type: "CHAT"
-            }));
+            })});
         } else {
             alert("STOMP 연결이 아직 안 되었습니다!");
         }
