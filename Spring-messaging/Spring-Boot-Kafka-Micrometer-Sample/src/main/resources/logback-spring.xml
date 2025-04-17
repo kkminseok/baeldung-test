@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <property name="LOG_PATH" value="${LOG_PATH:-./Spring-messaging/Spring-Boot-Kafka-Micrometer-Sample/logs}" />
+
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSSZ}{Asia/Seoul} [%highlight(%-5level)] [%thread] %-30.100logger{30} : %msg%n" />
+
+    <property name="KAFKA_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSSZ}{Asia/Seoul} [%highlight(%-5level)] [%thread] [traceId=%X{traceId:-}, spanId=%X{spanId:-}] %-30.100logger{30} : %msg%n" />
+
+    <!-- Console 출력 -->
+    <appender name="ConsoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 일반 로그 파일 -->
+    <appender name="LogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/api.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/voc-api-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>20</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${KAFKA_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 에러 로그 파일 -->
+    <appender name="LogFile-Error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/api-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/voc-api-error-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>20</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- Kafka 메시지 로그 파일 -->
+    <appender name="LogFile-Kafka" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/kafka-message.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/voc-kafka-message-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>20</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${KAFKA_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 루트 로거 -->
+    <root level="INFO">
+        <appender-ref ref="ConsoleLog"/>
+        <appender-ref ref="LogFile"/>
+    </root>
+
+    <!-- 스프링 로깅 수준 제한 -->
+    <logger name="org.springframework" level="ERROR" additivity="false">
+        <appender-ref ref="ConsoleLog"/>
+        <appender-ref ref="LogFile-Error"/>
+    </logger>
+
+    <!-- Kafka 관련 로그 별도 파일로 분리 -->
+    <logger name="com.my.springbootkafkabatchsample" level="INFO" >
+        <appender-ref ref="LogFile-Kafka"/>
+    </logger>
+</configuration>

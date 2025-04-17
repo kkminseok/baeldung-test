@@ -13,6 +13,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-KIP-848-Producer" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-KIP-848-Test" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Micrometer-Sample" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Micrometer-Sample-Log4j2" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Producer" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Retry-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-TopologyTest-Sample" />
