@@ -30,6 +30,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient-MVC" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient-Reactive" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-Security/Spring-Keycloak-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-test" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-Artemis-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-example" />

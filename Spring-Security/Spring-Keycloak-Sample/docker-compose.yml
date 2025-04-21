@@ -1,0 +1,15 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.2
+    container_name: "keycloak-sample"
+    command: start-dev --import-realm
+    volumes:
+      - ./Spring-Security/Spring-Keycloak-Sample/keycloak:/opt/keycloak/data/import
+      - ./my-login-theme/login/custom.css:/opt/keycloak/themes/my-login-theme/resources/css/custom.css
+      - ./my-login-theme/login/login.ftl:/opt/keycloak/themes/my-login-theme/login/login.ftl
+      - ./my-login-theme/login/theme.properties:/opt/keycloak/themes/my-login-theme/theme.properties
+    environment:
+      - KEYCLOAK_ADMIN=user
+      - KEYCLOAK_ADMIN_PASSWORD=password
+    ports:
+      - 26343:8080
