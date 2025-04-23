@@ -39,3 +39,20 @@ input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.naver-btn {
+    background-color: #1EC800;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.naver-btn:hover {
+    background-color: #17a300;
+    color: white;
+}
