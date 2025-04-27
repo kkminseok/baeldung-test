@@ -1,0 +1,26 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: Spring-Gateway-Server
+  docker:
+    compose:
+      file: ./Spring-Security/Spring-Keycloak-resource-Sample/Spring-Gateway-Server/docker-compose.yml
+      lifecycle-management: start_and_stop
+      start:
+        command: up
+      stop:
+        command: down
+        timeout: 10s
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: sample-service
+            client-secret: gRPulYkdsuZdYccAm0mvwwBXUaONoQtO
+            scope:
+              - openid,roles
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:26343/realms/my-realm
