@@ -18,7 +18,7 @@ spring:
         registration:
           keycloak:
             client-id: sample-service
-            client-secret: gRPulYkdsuZdYccAm0mvwwBXUaONoQtO
+            client-secret: H6PgnyJQwwc1Zh5qMwPBf6Ct8Wf7EFhn
             scope:
               - openid,roles
         provider:
