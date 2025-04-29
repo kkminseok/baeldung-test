@@ -1,11 +1,13 @@
 const stompClient = new StompJs.Client({
-    brokerURL: 'ws://10.162.3.234:8080/gs-guide-websocket'
+    brokerURL: 'ws://localhost:8080/gs-guide-websocket'
 });
 
 stompClient.onConnect = (frame) => {
     setConnected(true);
+
+    loadChatHistory(1);
     console.log('Connected: ' + frame);
-    stompClient.subscribe('/topic/chat', (response) => {
+    stompClient.subscribe('/topic/chat.1', (response) => {
         console.log(response)
         showGreeting(JSON.parse(response.body).ip + ": " + JSON.parse(response.body).message);
     });
@@ -44,14 +46,25 @@ function disconnect() {
 
 function sendName() {
     stompClient.publish({
-        destination: "/app/chat",
-        body: JSON.stringify({'message': $("#name").val()})
+        destination: "/app/chat/1",
+        body: JSON.stringify({'message': $("#name").val(), 'roomId': 1})
     });
+}
+
+function loadChatHistory(roomId) {
+    fetch("/api/chat/rooms/" + roomId + "/messages")
+        .then(response => {console.log(response);response.json()})
+        .then(messages => {
+            messages.forEach(msg => {
+                showGreeting(msg.ip + ": " + msg.message);
+            });
+        });
 }
 
 function showGreeting(message) {
     $("#greetings").append("<tr><td>" + message + "</td></tr>");
 }
+
 
 $(function () {
     $("form").on('submit', (e) => e.preventDefault());
