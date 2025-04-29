@@ -53,8 +53,9 @@ function sendName() {
 
 function loadChatHistory(roomId) {
     fetch("/api/chat/rooms/" + roomId + "/messages")
-        .then(response => {console.log(response);response.json()})
+        .then(response => response.json())
         .then(messages => {
+            console.log("message! ", messages);
             messages.forEach(msg => {
                 showGreeting(msg.ip + ": " + msg.message);
             });
