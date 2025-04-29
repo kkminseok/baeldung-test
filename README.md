@@ -65,6 +65,7 @@ https://www.baeldung.com/
     - [Kafka-Micrometer + Log4j2연동 테스트](/Spring-messaging/Spring-Boot-Kafka-Micrometer-Sample-Log4j2)
   - WebSocket
     - [Spring STOMP 예제](https://spring.io/guides/gs/messaging-stomp-websocket) -> [테스트 코드](/Spring-WebSocket/Spring-STOMP-example)
+    - [Spring STOMP + RabbitMQ Broker 예제] -> [테스트 코드](/Spring-messaging/Spring-RabbitMQ-STOMP-Sample)
   - Reactive
     - [Guide to Spring WebFlux](https://www.baeldung.com/spring-webflux) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Guide) 
     - [Spring WebFlux Filters](https://www.baeldung.com/spring-webflux-filters) -> [테스트 코드](/Spring-reactive/Spring-Webflux-Filter/src/test/java/com/my/springwebfluxfilter/ExampleWebFilterTest.java)
