@@ -9,7 +9,7 @@ stompClient.onConnect = (frame) => {
     console.log('Connected: ' + frame);
     stompClient.subscribe('/topic/chat.1', (response) => {
         console.log(response)
-        showGreeting(JSON.parse(response.body).ip + ": " + JSON.parse(response.body).message);
+        showGreeting(JSON.parse(response.body).dateTime + "/" + JSON.parse(response.body).ip + ": " + JSON.parse(response.body).message);
     });
 };
 
@@ -57,7 +57,7 @@ function loadChatHistory(roomId) {
         .then(messages => {
             console.log("message! ", messages);
             messages.forEach(msg => {
-                showGreeting(msg.ip + ": " + msg.message);
+                showGreeting(msg.dateTime + "/" + msg.ip + ": " + msg.message);
             });
         });
 }

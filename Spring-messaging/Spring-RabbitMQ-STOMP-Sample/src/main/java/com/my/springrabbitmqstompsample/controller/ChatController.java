@@ -15,6 +15,8 @@ import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.MessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 
+import java.time.ZonedDateTime;
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor
@@ -30,12 +32,13 @@ public class ChatController {
         log.info(chatMessage.toString());
         String ip = (String) ha.getSessionAttributes().get("ip").toString();
         chatMessage.setIp(ip);
+        chatMessage.setDateTime(ZonedDateTime.now());
         log.info(ip.toString());
         String redisKey = "chat:room:" + chatMessage.getRoomId();
         log.info(redisKey);
         redisTemplate.opsForList().rightPush(redisKey, chatMessage);
         redisTemplate.opsForList().trim(redisKey, -100, -1); // 최근 100개만 유지
-        template.convertAndSend("/topic/chat." + chatMessage.getRoomId() , new ChatMessage(chatMessage.getSender(),  ip, chatMessage.getMessage(), chatMessage.getRoomId()));
+        template.convertAndSend("/topic/chat." + chatMessage.getRoomId() , new ChatMessage(chatMessage.getSender(),  ip, chatMessage.getMessage(), chatMessage.getRoomId(), ZonedDateTime.now()));
         //return new ChatMessage(chatMessage.sender(),  ip, chatMessage.message(), chatMessage.roomId());
     }
 }
