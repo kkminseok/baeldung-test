@@ -13,6 +13,8 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.time.ZonedDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -51,7 +53,7 @@ class ChatHistoryControllerTest {
     @Test
     void shouldReturnChatMessagesFromRedis() throws Exception {
         String roomKey = "chat:room:1";
-        ChatMessage chatMessage = new ChatMessage("system", "127.0.0.1", "message","1");
+        ChatMessage chatMessage = new ChatMessage("system", "127.0.0.1", "message","1", "text", ZonedDateTime.now());
         redisTemplate.opsForList().leftPush(roomKey, chatMessage);
 
         mockMvc.perform(get("/api/chat/rooms/1/messages"))
