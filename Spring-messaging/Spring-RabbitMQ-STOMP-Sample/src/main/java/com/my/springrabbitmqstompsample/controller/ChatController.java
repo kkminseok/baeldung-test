@@ -33,12 +33,13 @@ public class ChatController {
         String ip = (String) ha.getSessionAttributes().get("ip").toString();
         chatMessage.setIp(ip);
         chatMessage.setDateTime(ZonedDateTime.now());
-        log.info(ip.toString());
         String redisKey = "chat:room:" + chatMessage.getRoomId();
-        log.info(redisKey);
         redisTemplate.opsForList().rightPush(redisKey, chatMessage);
         redisTemplate.opsForList().trim(redisKey, -100, -1); // 최근 100개만 유지
-        template.convertAndSend("/topic/chat." + chatMessage.getRoomId() , new ChatMessage(chatMessage.getSender(),  ip, chatMessage.getMessage(), chatMessage.getRoomId(), ZonedDateTime.now()));
-        //return new ChatMessage(chatMessage.sender(),  ip, chatMessage.message(), chatMessage.roomId());
+
+        log.info("chat:", chatMessage.toString());
+
+        template.convertAndSend("/topic/chat." + chatMessage.getRoomId(), new ChatMessage(chatMessage.getSender(), ip, chatMessage.getMessage(), chatMessage.getRoomId(), chatMessage.getType(), ZonedDateTime.now()));
     }
+
 }

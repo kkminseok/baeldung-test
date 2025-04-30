@@ -18,6 +18,7 @@ public class ChatMessage {
     String ip;
     String message;
     String roomId;
+    String type;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     ZonedDateTime dateTime;
