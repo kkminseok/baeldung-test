@@ -1,12 +1,59 @@
-function sendImageMessage(imageUrl) {
+let currentSubscription = null;
+
+function sendImageMessage(imageUrl, roomId) {
     stompClient.publish({
-        destination: "/app/chat/1",
+        destination: "/app/chat/"+ roomId,
         body: JSON.stringify({
             type: "image",
             message: imageUrl,
-            roomId: 1
+            roomId: roomId
         })
     });
+}
+
+function getSelectedRoomId() {
+    var roomId = document.getElementById("roomSelect").value;
+    if(roomId == null){
+        roomId = 1;
+    }
+    return roomId;
+}
+
+function subscribeToRoom(roomId) {
+    // 이전 구독 해저
+    if (currentSubscription) {
+        currentSubscription.unsubscribe();
+    }
+
+    // 새 방 구독
+    currentSubscription = stompClient.subscribe('/topic/chat.' + roomId, (response) => {
+        console.log("새 방 메시지:", response);
+        showGreeting(JSON.parse(response.body).ip + ": " + JSON.parse(response.body).message);
+    });
+
+    loadChatHistory(roomId);
+    console.log("구독 완료: /topic/chat." + roomId);
+}
+
+function loadRoomList() {
+    fetch("/api/chat/room/list")
+        .then(response => response.json())
+        .then(rooms => {
+            const select = document.getElementById("roomSelect");
+            // 초기화
+            select.innerHTML = '<option value="">방을 선택하세요</option>';
+
+            // 방 리스트 채우기
+            rooms.forEach(roomId => {
+                const option = document.createElement("option");
+                option.value = roomId;
+                option.text = "방 번호: " + roomId;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error("방 목록을 불러오는 중 오류 발생:", error);
+        });
 }
 
 const stompClient = new StompJs.Client({
@@ -16,12 +63,25 @@ const stompClient = new StompJs.Client({
 stompClient.onConnect = (frame) => {
     setConnected(true);
 
+    stompClient.subscribe('/user/queue/room', (response) => {
+        const roomInfo = JSON.parse(response.body);
+        console.log("roomId:", roomInfo);
+        currentSubscription = stompClient.subscribe('/topic/chat.'+ roomInfo.roomId, (response) => {
+            console.log(response)
+            showGreeting(JSON.parse(response.body).dateTime + "/" + JSON.parse(response.body).ip + ": " + JSON.parse(response.body).message, JSON.parse(response.body).type);
+        });
+
+    })
+
+    //방생성
+    stompClient.publish({
+        destination: "/app/chat/create-room",
+        body: JSON.stringify({})
+    })
+
     loadChatHistory(1);
     console.log('Connected: ' + frame);
-    stompClient.subscribe('/topic/chat.1', (response) => {
-        console.log(response)
-        showGreeting(JSON.parse(response.body).dateTime + "/" + JSON.parse(response.body).ip + ": " + JSON.parse(response.body).message, JSON.parse(response.body).type);
-    });
+
 };
 
 stompClient.onWebSocketError = (error) => {
@@ -54,20 +114,21 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
+function sendName(roomId) {
     stompClient.publish({
-        destination: "/app/chat/1",
-        body: JSON.stringify({'message': $("#name").val(), 'roomId': 1})
+        destination: "/app/chat/"+ roomId,
+        body: JSON.stringify({'message': $("#name").val(), 'roomId': roomId})
     });
 }
 
 function loadChatHistory(roomId) {
+    $("#greetings").html("");
     fetch("/api/chat/rooms/" + roomId + "/messages")
         .then(response => response.json())
         .then(messages => {
             console.log("message! ", messages);
             messages.forEach(msg => {
-                showGreeting(msg.dateTime + "/" + msg.ip + ": " + msg.message, "text");
+                showGreeting(msg.dateTime + "/" + msg.ip + ": " + msg.message, msg.type);
             });
         });
 }
@@ -88,7 +149,8 @@ $(function () {
     $("form").on('submit', (e) => e.preventDefault());
     $("#connect").click(() => connect());
     $("#disconnect").click(() => disconnect());
-    $("#send").click(() => sendName());
+    $("#send").click(() => sendName(getSelectedRoomId()));
+    loadRoomList();
 });
 
 document.addEventListener('paste', (event) => {
@@ -110,5 +172,15 @@ document.addEventListener('paste', (event) => {
                     sendImageMessage(imageUrl); // STOMP로 이미지 URL 보내기
                 });
         }
+    }
+});
+
+// 방 선택 시 액션 실행
+document.getElementById("roomSelect").addEventListener("change", function () {
+    const selectedRoom = this.value;
+    console.log("선택된 방:", selectedRoom);
+
+    if (selectedRoom) {
+        subscribeToRoom(selectedRoom);
     }
 });

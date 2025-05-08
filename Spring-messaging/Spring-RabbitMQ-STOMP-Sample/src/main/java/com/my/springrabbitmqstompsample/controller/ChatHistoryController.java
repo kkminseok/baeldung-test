@@ -18,12 +18,18 @@ import java.util.List;
 public class ChatHistoryController {
 
     private final RedisTemplate<String, ChatMessage> redisTemplate;
+    private final RedisTemplate<String, String> stringRedisTemplate;
 
     @GetMapping("/rooms/{roomId}/messages")
     public List<ChatMessage> getChatHistory(@PathVariable String roomId) {
         String key = "chat:room:" + roomId;
         List<ChatMessage> messages = redisTemplate.opsForList().range(key, 0, -1);// 전체 조회
-        log.info(messages.toString());
+        //log.info(messages.toString());
         return messages;
+    }
+
+    @GetMapping("/room/list")
+    public List<String> getRoomList() {
+        return stringRedisTemplate.opsForSet().members("chat:room:set").stream().toList();
     }
 }

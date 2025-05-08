@@ -7,12 +7,12 @@
     <link href="/main.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
-    <script src="/app.js"></script>
 </head>
 <body>
 <div id="patch-note" class="alert alert-info text-center" role="alert">
     🔧 2025.04.29: ip정보 출력, reids를 이용한 히스토리 내역 출력 </br>
     🔧 2025.04.30: timezone 정보 출력
+    🔧 2025.05.08: 여러방 구독, 해제 등 추가
 </div>
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
     enabled. Please enable
@@ -38,6 +38,12 @@
                 <button id="send" class="btn btn-default" type="submit">Send</button>
             </form>
         </div>
+
+        <div class="col-md-6">
+            <select id="roomSelect" class="form-control">
+                <option value="">방을 선택하세요</option>
+            </select>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -53,5 +59,6 @@
         </div>
     </div>
 </div>
+<script src="/app.js"></script>
 </body>
 </html>
