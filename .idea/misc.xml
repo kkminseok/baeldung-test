@@ -17,6 +17,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Producer" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Retry-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-TopologyTest-Sample" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-RabbitMQ-STOMP-1ON1-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-RabbitMQ-STOMP-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-AsyncDiffTest" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Error-handling" />
