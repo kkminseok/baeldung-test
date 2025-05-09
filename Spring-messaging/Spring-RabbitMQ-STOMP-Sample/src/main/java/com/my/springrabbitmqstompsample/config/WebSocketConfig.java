@@ -2,6 +2,7 @@ package com.my.springrabbitmqstompsample.config;
 
 import com.my.springrabbitmqstompsample.interceptor.HttpHandshakeInterceptor;
 import com.my.springrabbitmqstompsample.interceptor.IpInterceptor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -10,8 +11,11 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
 @Configuration
+@RequiredArgsConstructor
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+
+    private final IpInterceptor ipInterceptor;
 
     /**
      * Configure the message broker for handling messages from clients.
@@ -27,10 +31,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                 .setClientLogin("guest")         // Login username for clients
                 .setClientPasscode("guest")      // Login password for clients
                 .setSystemLogin("guest")         // Login username for system (Spring) connections
-                .setSystemPasscode("guest");     // Login password for system (Spring) connections
+                .setSystemPasscode("guest")
+                .setUserDestinationBroadcast("/topic/unresolved-user")
+                .setUserRegistryBroadcast("/topic/registry");     // Login password for system (Spring) connections
 
         // Application-level destination prefix for messages handled by @MessageMapping methods
         registry.setApplicationDestinationPrefixes("/app");
+        registry.setUserDestinationPrefix("/user");
     }
 
     /**
@@ -46,7 +53,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureClientInboundChannel(ChannelRegistration registration) {
-        registration.interceptors(new IpInterceptor());
+        registration.interceptors(ipInterceptor);
     }
 
 }

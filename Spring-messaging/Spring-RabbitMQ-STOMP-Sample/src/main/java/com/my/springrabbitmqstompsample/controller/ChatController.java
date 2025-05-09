@@ -14,6 +14,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
+import org.springframework.messaging.simp.user.SimpUserRegistry;
 import org.springframework.messaging.support.MessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 
@@ -44,9 +45,12 @@ public class ChatController {
         redisTemplate.opsForList().rightPush(redisKey, chatMessage);
         redisTemplate.opsForList().trim(redisKey, -100, -1); // 최근 100개만 유지
 
-        log.info("chat:", chatMessage.toString());
+        log.info("chat: {}", chatMessage.toString());
         log.info("agentId: {}", getAgentId());
         template.convertAndSend("/topic/chat." + chatMessage.getRoomId(), new ChatMessage(chatMessage.getSender(), ip, chatMessage.getMessage(), chatMessage.getRoomId(), chatMessage.getType(), ZonedDateTime.now()));
+        log.info("보내");
+
+        template.convertAndSendToUser(getAgentId(), "/queue/messages", new ChatMessage(chatMessage.getSender(), ip, chatMessage.getMessage(), chatMessage.getRoomId(), chatMessage.getType(), ZonedDateTime.now()));
     }
 
     @MessageMapping("/chat/create-room")
