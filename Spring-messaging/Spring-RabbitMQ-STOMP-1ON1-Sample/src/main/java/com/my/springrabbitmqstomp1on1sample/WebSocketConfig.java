@@ -29,9 +29,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                 .setClientLogin("guest")         // Login username for clients
                 .setClientPasscode("guest")      // Login password for clients
                 .setSystemLogin("guest")         // Login username for system (Spring) connections
-                .setSystemPasscode("guest");
-//                .setUserDestinationBroadcast("/topic/unresolved-user")
-//                .setUserRegistryBroadcast("/topic/registry");     // Login password for system (Spring) connections
+                .setSystemPasscode("guest")
+                .setUserDestinationBroadcast("/topic/unresolved-user")
+                .setUserRegistryBroadcast("/topic/registry");     // Login password for system (Spring) connections
 
         // Application-level destination prefix for messages handled by @MessageMapping methods
         registry.setApplicationDestinationPrefixes("/app");

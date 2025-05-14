@@ -9,13 +9,13 @@ stompClient.onConnect = (frame) => {
     console.log('Connected: ' + frame);
 
     // rabbitmq를 브로드캐스팅 용으로 쓰면 안되는듯
-    // stompClient.subscribe('/user/queue/messages', (message) => {
-    //     console.log("Private message: " + message.body);
-    // });
+    stompClient.subscribe('/user/queue/messages', (message) => {
+        console.log("Private message: " + message.body);
+    });
 
-    stompClient.subscribe("/queue/user.123", (message) => {
-        console.log("Private123 message: " + message.body)
-    })
+    // stompClient.subscribe("/queue/user.123", (message) => {
+    //     console.log("Private123 message: " + message.body)
+    // })
 };
 
 stompClient.activate();

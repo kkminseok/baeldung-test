@@ -1,4 +1,9 @@
+function generateRandomUsername() {
+    return 'user-' + crypto.randomUUID();
+}
+
 let currentSubscription = null;
+const username = generateRandomUsername()
 
 function sendImageMessage(imageUrl, roomId) {
     stompClient.publish({
@@ -59,18 +64,15 @@ function loadRoomList() {
 const stompClient = new StompJs.Client({
     brokerURL: 'ws://localhost:8080/gs-guide-websocket',
     connectHeaders: {
-        username: "12399"
+        username: username,
+        type: "agent"
     }
 });
 
 stompClient.onConnect = (frame) => {
     setConnected(true);
 
-    stompClient.subscribe("/user/queue/messages", (response) => {
-        console.log("Private message: " + response.body);
-    });
-
-    stompClient.subscribe('/user/queue/room', (response) => {
+    stompClient.subscribe('/queue/room', (response) => {
         const roomInfo = JSON.parse(response.body);
         console.log("roomId:", roomInfo);
         currentSubscription = stompClient.subscribe('/topic/chat.'+ roomInfo.roomId, (response) => {

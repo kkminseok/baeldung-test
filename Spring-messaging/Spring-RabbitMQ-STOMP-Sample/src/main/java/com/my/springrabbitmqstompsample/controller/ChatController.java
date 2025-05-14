@@ -19,6 +19,7 @@ import org.springframework.messaging.support.MessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Slf4j
@@ -27,8 +28,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ChatController {
 
     private final RedisTemplate<String, ChatMessage> redisTemplate;
-
-    private final RedisTemplate<String,String> stringRedisTemplate;
 
     private final RabbitTemplate rabbitTemplate;
 
@@ -46,23 +45,10 @@ public class ChatController {
         redisTemplate.opsForList().trim(redisKey, -100, -1); // 최근 100개만 유지
 
         log.info("chat: {}", chatMessage.toString());
-        log.info("agentId: {}", getAgentId());
-        template.convertAndSend("/topic/chat." + chatMessage.getRoomId(), new ChatMessage(chatMessage.getSender(), ip, chatMessage.getMessage(), chatMessage.getRoomId(), chatMessage.getType(), ZonedDateTime.now()));
-        log.info("보내");
+        //log.info("agentId: {}", getAgentId());
 
-        template.convertAndSendToUser(getAgentId(), "/queue/messages", new ChatMessage(chatMessage.getSender(), ip, chatMessage.getMessage(), chatMessage.getRoomId(), chatMessage.getType(), ZonedDateTime.now()));
-    }
-
-    @MessageMapping("/chat/create-room")
-    public void createRoom() {
-        int roomId = ThreadLocalRandom.current().nextInt(1,11);
-        RoomResponse roomResponse = RoomResponse.builder()
-                .roomId(String.valueOf(roomId))
-                .build();
-        log.info("=====================================createRoom: {}", roomResponse.getRoomId());
-        String redisKey = "chat:room:set";  // Set은 자동 중복 제거
-        stringRedisTemplate.opsForSet().add(redisKey, roomResponse.getRoomId());
-        template.convertAndSend("/user/queue/room", roomResponse);
+        template.convertAndSend("/topic/room." + chatMessage.getRoomId(), new ChatMessage(chatMessage.getSender(), ip, chatMessage.getMessage(), chatMessage.getRoomId(), chatMessage.getType(), ZonedDateTime.now()));
+        log.info("메시지 보냈다. :{}", "/topic/room." + chatMessage.getRoomId());
     }
 
     private String getAgentId() {

@@ -1,4 +1,10 @@
+function generateRandomUsername() {
+    return 'user-' + crypto.randomUUID();
+}
+
 let currentSubscription = null;
+let roomId = null;
+const username = generateRandomUsername()
 
 function sendImageMessage(imageUrl, roomId) {
     stompClient.publish({
@@ -57,14 +63,21 @@ function loadRoomList() {
 }
 
 const stompClient = new StompJs.Client({
-    brokerURL: 'ws://localhost:8080/gs-guide-websocket'
+    brokerURL: 'ws://localhost:8080/gs-guide-websocket',
+    connectHeaders: {
+        username: username,
+        type: "enduser"
+    }
 });
 
 stompClient.onConnect = (frame) => {
     setConnected(true);
 
-    stompClient.subscribe('/user/queue/room', (response) => {
+    showGreeting("Bot: 안녕하세요. 상담원을 연결중입니다.")
+
+    stompClient.subscribe('/queue/room.' + roomId, (response) => {
         const roomInfo = JSON.parse(response.body);
+        roomId = roomInfo.roomId;
         console.log("roomId:", roomInfo);
         currentSubscription = stompClient.subscribe('/topic/chat.'+ roomInfo.roomId, (response) => {
             console.log(response)
@@ -73,13 +86,18 @@ stompClient.onConnect = (frame) => {
 
     })
 
-    //방생성
-    stompClient.publish({
-        destination: "/app/chat/create-room",
-        body: JSON.stringify({})
+    //이미 생성된 방 있으면 거기를 구독.
+
+    //없는 경우 방생성
+    console.log("나 방만든다")
+    fetch('/api/chat/create-room/' + username, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
 
-    loadChatHistory(1);
+    //loadChatHistory(1);
     console.log('Connected: ' + frame);
 
 };
@@ -96,6 +114,7 @@ stompClient.onStompError = (frame) => {
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
+    $("#agree").prop("disabled", !connected);
     if (connected) {
         $("#conversation").show();
     } else {
@@ -144,10 +163,16 @@ function showGreeting(message, type) {
     $("#greetings").append(html);
 }
 
+function agree() {
+    // 상담원을 찾고 해당 상담원과 같은 방을 구독
+    console.log(roomId)
+
+}
 
 $(function () {
     $("form").on('submit', (e) => e.preventDefault());
     $("#connect").click(() => connect());
+    $("#agree").click(() => agree());
     $("#disconnect").click(() => disconnect());
     $("#send").click(() => sendName(getSelectedRoomId()));
     loadRoomList();

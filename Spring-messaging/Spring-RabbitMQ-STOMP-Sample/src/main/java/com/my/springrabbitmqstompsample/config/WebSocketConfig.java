@@ -48,6 +48,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Register the WebSocket endpoint that clients will use to connect
         registry.addEndpoint("/gs-guide-websocket")
+                .setAllowedOrigins("*")
                 .addInterceptors(new HttpHandshakeInterceptor());
     }
 

@@ -22,10 +22,13 @@ public class ChatController {
     public void sendMessage(ChatMessage chatMessage) {
         log.info("Message from {} to {}", chatMessage.getSender(), chatMessage.getReceiver());
 
-        messagingTemplate.convertAndSend(
-                "/queue/"+chatMessage.getReceiver(),
-                chatMessage
+//        messagingTemplate.convertAndSend(
+//                "/queue/"+chatMessage.getReceiver(),
+//                chatMessage
+//        );
 
-        );
+        messagingTemplate.convertAndSendToUser(
+                chatMessage.getReceiver(),
+                "/queue/messages", chatMessage);
     }
 }
