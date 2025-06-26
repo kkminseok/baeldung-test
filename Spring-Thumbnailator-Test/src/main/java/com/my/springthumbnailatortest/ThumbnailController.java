@@ -24,4 +24,10 @@ public class ThumbnailController {
         response.setContentType("image/jpeg"); // 또는 생성하는 이미지 타입에 맞게 설정
         thumbnailService.writeThumbnail(file, response.getOutputStream());
     }
+
+    @PostMapping("/thumbnail/movie")
+    public void getMovieThumbnail(@RequestPart MultipartFile file, HttpServletResponse response) throws IOException {
+        response.setContentType("image/jpeg"); // 또는 생성하는 이미지 타입에 맞게 설정
+        thumbnailService.writeThumnailMovie(file, response.getOutputStream());
+    }
 }
