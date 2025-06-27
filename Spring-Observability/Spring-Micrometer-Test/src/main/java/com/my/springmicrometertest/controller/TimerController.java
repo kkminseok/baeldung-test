@@ -4,6 +4,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.instrument.binder.jvm.JvmMemoryMetrics;
 import io.micrometer.core.instrument.binder.system.ProcessorMetrics;
+import org.springframework.boot.actuate.autoconfigure.tracing.TracingProperties.OpenTelemetry;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,8 +15,9 @@ public class TimerController {
 
     private final Timer timer;
     private final MeterRegistry meterRegistry;
+    private final OpenTelemetry openTelemetry;
 
-    public TimerController(MeterRegistry meterRegistry) {
+    public TimerController(MeterRegistry meterRegistry, OpenTelemetry openTelemetry) {
         this.meterRegistry = meterRegistry;
         this.timer = Timer.builder("response.time")
                 .description("Response time for requests")
@@ -23,6 +25,9 @@ public class TimerController {
 
         new ProcessorMetrics().bindTo(this.meterRegistry);
         new JvmMemoryMetrics().bindTo(this.meterRegistry);
+
+        this.openTelemetry = openTelemetry;
+
     }
 
     @GetMapping("/timer")

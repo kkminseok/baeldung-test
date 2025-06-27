@@ -21,6 +21,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+	runtimeOnly 'org.springframework.boot:spring-boot-docker-compose'
+
+	// Otel
+	runtimeOnly 'io.micrometer:micrometer-registry-otlp'
+	runtimeOnly "io.opentelemetry.javaagent:opentelemetry-javaagent:1.33.3"
+
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
