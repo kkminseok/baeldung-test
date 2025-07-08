@@ -1,0 +1,52 @@
+receivers:
+  # 애플리케이션으로부터 OTLP 데이터 수신
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+processors:
+  # 데이터 효율적 전송을 위한 배치 처리
+  batch:
+    send_batch_size: 1000
+    timeout: 10s
+
+  # Collector 메모리 사용량 제한
+  memory_limiter:
+    limit_mib: 256
+    spike_limit_mib: 64
+    check_interval: 5s
+
+  # 리소스 정보 자동 감지 (OS, 호스트명 등)
+  resourcedetection:
+    detectors: [system, env, host]
+    system:
+      resource_attributes:
+        os.type: {from: system.os.type}
+        host.arch: {from: system.host.arch}
+
+exporters:
+  # 트레이스 데이터를 Jaeger로 내보내기
+  jaeger:
+    grpc:
+      endpoint: jaeger-all-in-one:14250 # Jaeger gRPC Collector 주소
+
+  # 메트릭 데이터를 Prometheus가 스크랩할 수 있도록 Collector 자체에 Prometheus 엔드포인트 노출
+  prometheus:
+    endpoint: 0.0.0.0:8889 # Collector가 이 포트로 메트릭을 노출
+
+  # 디버깅을 위한 로그 익스포터 (콘솔 출력)
+  logging:
+    loglevel: debug
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, resourcedetection]
+      exporters: [jaeger, logging]
+
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, resourcedetection]
+      exporters: [prometheus, logging]

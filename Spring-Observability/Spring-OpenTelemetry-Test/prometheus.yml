@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s # Prometheus가 메트릭을 수집하는 주기
+  evaluation_interval: 15s
+
+scrape_configs:
+  # otel-collector가 노출하는 Prometheus 메트릭을 수집
+  - job_name: 'otel-collector'
+    static_configs:
+      - targets: ['otel-collector:8889']
+
+  # Spring Boot 애플리케이션의 /actuator/prometheus 엔드포인트를 직접 수집
+  - job_name: 'spring-boot-app'
+    metrics_path: '/actuator/prometheus'
+    # 애플리케이션이 호스트 머신에서 실행 중이라면 host.docker.internal 사용
+    # 만약 Spring Boot 앱도 Docker Compose 네트워크 내의 다른 컨테이너라면 해당 서비스 이름 사용
+    static_configs:
+      - targets: ['host.docker.internal:8080'] # Spring Boot 앱의 기본 포트
