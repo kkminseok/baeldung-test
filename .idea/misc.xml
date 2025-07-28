@@ -12,6 +12,7 @@
     <file type="web" url="file://$PROJECT_DIR$/My-test/ScopeValueTest" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/Spring-Webflux-Mono-Test" />
     <file type="web" url="file://$PROJECT_DIR$/quarkus/quarkus-hello-world" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-Data/Spring-Data-ElasticSearch/SpringDataElasticSearchExample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Batch-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-KIP-848-Consumer" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-KIP-848-Producer" />
