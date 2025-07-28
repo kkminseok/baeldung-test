@@ -8,6 +8,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Java-web" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/demo" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/EnumMapTest" />
+    <file type="web" url="file://$PROJECT_DIR$/My-test/JavaTestQualityTest" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/ScopeValueTest" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/Spring-Webflux-Mono-Test" />
     <file type="web" url="file://$PROJECT_DIR$/quarkus/quarkus-hello-world" />
@@ -28,7 +29,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-AsyncDiffTest" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Error-handling" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Filter" />
-    <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Guide" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-guide" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-HttpStatus" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-mono-flux-test" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-static-content" />
@@ -38,6 +39,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient-MVC" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/SpringRestTemplateCompareWebClient-Reactive" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-Rest-Docs/SpringRestDoc-Common-Example" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-Security/Spring-Keycloak-resource-Sample/Spring-Gateway-Server" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-Security/Spring-Keycloak-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-test" />
