@@ -1,6 +1,10 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class QualityTest {
 
     @Test
@@ -16,5 +20,14 @@ public class QualityTest {
 //        }
 
         System.out.printf(format, args.length == 0 ? "user" : args);
+    }
+
+    @Test
+    @DisplayName("잘못된 메서드 참조 사용")
+    void givenWrongMethodReference() {
+        List<Integer> list = Arrays.asList(0, -3, 3, -1, 1, 2);
+        list.sort(Integer::max);
+        // [0, -3 , 3, -1, 1, 2]
+        System.out.println(list);
     }
 }
