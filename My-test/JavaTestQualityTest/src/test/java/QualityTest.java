@@ -1,3 +1,5 @@
+import com.my.compareEntity.IntObj;
+import com.my.compareEntity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -87,5 +89,27 @@ public class QualityTest {
         int end = input.indexOf(start, ']');
         Assertions.assertEquals(118, start);
         Assertions.assertEquals(122,end);
+    }
+
+    @Test
+    @DisplayName("63 compare() 문제")
+    void compareMistakeTest() {
+        User u1 = new User("Mary", 30);
+        User u2 = new User("Mary", 20);
+        User u3 = new User("Joe", 30);
+        Assertions.assertEquals(1, u1.compareTo(u2));
+        Assertions.assertEquals(3, u1.compareTo(u3));
+    }
+
+    @Test
+    @DisplayName("65 숫자뺄셈 compare()문제")
+    void compareMinusMistakeTest() {
+        IntObj x = new IntObj(2_000_000_000);
+        IntObj y = new IntObj(0);
+        IntObj z = new IntObj(-2_000_000_000);
+
+        Assertions.assertTrue(x.compareTo(y) > 0);
+        Assertions.assertTrue(y.compareTo(z) > 0);
+        Assertions.assertFalse(x.compareTo(z) > 0);
     }
 }
