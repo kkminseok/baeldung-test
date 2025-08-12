@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -89,6 +90,16 @@ public class QualityTest {
         int end = input.indexOf(start, ']');
         Assertions.assertEquals(118, start);
         Assertions.assertEquals(122,end);
+    }
+
+
+    @Test
+    @DisplayName("BigInteger 비교 특이점 테스트")
+    void testBigIntegerComparison() {
+        BigDecimal x = new BigDecimal("0");
+        BigDecimal y = new BigDecimal("0.0");
+
+        Assertions.assertNotEquals(x, y);
     }
 
     @Test
