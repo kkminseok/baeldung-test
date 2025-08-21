@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.file.Path;
+import java.util.*;
 
 public class QualityTest {
 
@@ -122,5 +123,17 @@ public class QualityTest {
         Assertions.assertTrue(x.compareTo(y) > 0);
         Assertions.assertTrue(y.compareTo(z) > 0);
         Assertions.assertFalse(x.compareTo(z) > 0);
+    }
+
+    @Test
+    @DisplayName("69 관련 없는 객체 타입 검색")
+    void unrelatedObjectTypeSearchTest() throws IOException {
+        Set<File> allowedFiles = new HashSet<>();
+
+        allowedFiles.contains(File.createTempFile("text", ".txt"));
+
+        List<Short> shortList = new ArrayList<>();
+        short s = 1;
+        shortList.contains(s + 1 );
     }
 }
