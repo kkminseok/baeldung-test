@@ -6,11 +6,13 @@
     <file type="web" url="file://$PROJECT_DIR$/Java-String" />
     <file type="web" url="file://$PROJECT_DIR$/Java-Test" />
     <file type="web" url="file://$PROJECT_DIR$/Java-web" />
+    <file type="web" url="file://$PROJECT_DIR$/My-test/CollectionsTest" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/demo" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/EnumMapTest" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/JavaTestQualityTest" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/ScopeValueTest" />
     <file type="web" url="file://$PROJECT_DIR$/My-test/Spring-Webflux-Mono-Test" />
+    <file type="web" url="file://$PROJECT_DIR$/My-test/VirtualThreadTest-24" />
     <file type="web" url="file://$PROJECT_DIR$/quarkus/quarkus-hello-world" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-Data/Spring-Data-ElasticSearch/SpringDataElasticSearchExample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Batch-Sample" />
@@ -48,7 +50,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-Artemis-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-example" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_24" default="true" project-jdk-name="22" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_24_PREVIEW" project-jdk-name="22" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

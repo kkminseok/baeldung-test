@@ -3,15 +3,9 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.sdkman/candidates/gradle/8.14.2/bin/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.38/57f8f5e02e92a30fd21b80cbd426a4172b5f8e29/lombok-1.18.38.jar" />
-        </processorPath>
-        <module name="SpringDataElasticSearchExample.main" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="com.my.Java-web.test" target="24" />
       <module name="Java-web.main" target="21" />
       <module name="Java-web.test" target="21" />
       <module name="Spring-Webflux-Chaninning-Asnyc.main" target="17" />
@@ -23,9 +17,27 @@
       <module name="Spring-Boot-Kafka-Batch-Sample" options="-parameters" />
       <module name="Spring-Boot-Kafka-Batch-Sample.main" options="-parameters" />
       <module name="Spring-Boot-Kafka-Batch-Sample.test" options="-parameters" />
+      <module name="Spring-Boot-Kafka-Micrometer-Sample" options="-parameters" />
+      <module name="Spring-Boot-Kafka-Micrometer-Sample.main" options="-parameters" />
+      <module name="Spring-Boot-Kafka-Micrometer-Sample.test" options="-parameters" />
       <module name="Spring-Boot-Kafka-Producer" options="-parameters" />
       <module name="Spring-Boot-Kafka-Producer.main" options="-parameters" />
       <module name="Spring-Boot-Kafka-Producer.test" options="-parameters" />
+      <module name="Spring-Boot-RabbitMQ-QuorumQueueTest" options="-parameters" />
+      <module name="Spring-Boot-RabbitMQ-QuorumQueueTest.main" options="-parameters" />
+      <module name="Spring-Boot-RabbitMQ-QuorumQueueTest.test" options="-parameters" />
+      <module name="Spring-Micrometer-Test" options="-parameters" />
+      <module name="Spring-Micrometer-Test.main" options="-parameters" />
+      <module name="Spring-Micrometer-Test.test" options="-parameters" />
+      <module name="Spring-OpenTelemetry-Test" options="-parameters" />
+      <module name="Spring-OpenTelemetry-Test.main" options="-parameters" />
+      <module name="Spring-OpenTelemetry-Test.test" options="-parameters" />
+      <module name="Spring-STOMP-Artemis-Sample" options="-parameters" />
+      <module name="Spring-STOMP-Artemis-Sample.main" options="-parameters" />
+      <module name="Spring-STOMP-Artemis-Sample.test" options="-parameters" />
+      <module name="Spring-Thumbnailator-Test" options="-parameters" />
+      <module name="Spring-Thumbnailator-Test.main" options="-parameters" />
+      <module name="Spring-Thumbnailator-Test.test" options="-parameters" />
       <module name="Spring-Webflux-AsyncDiffTest" options="-parameters" />
       <module name="Spring-Webflux-AsyncDiffTest.main" options="-parameters" />
       <module name="Spring-Webflux-AsyncDiffTest.test" options="-parameters" />
@@ -59,6 +71,9 @@
       <module name="Spring-test" options="-parameters" />
       <module name="Spring-test.main" options="-parameters" />
       <module name="Spring-test.test" options="-parameters" />
+      <module name="SpringDataElasticSearchExample" options="-parameters" />
+      <module name="SpringDataElasticSearchExample.main" options="-parameters" />
+      <module name="SpringDataElasticSearchExample.test" options="-parameters" />
     </option>
   </component>
 </project>
